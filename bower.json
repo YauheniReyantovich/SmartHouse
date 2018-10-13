@@ -1,0 +1,20 @@
+{
+  "name": "sample",
+  "dependencies": {
+    "angular": "~1.6.0",
+    "angular-route": "~1.6.0",
+    "angular-resource": "~1.6.0",
+    "angular-notify-toaster": "2.1.0",
+    "ngstorage": "0.3.11",
+    "angular-ui-router": "1.0.3",
+    "localforage": "1.5.0",
+    "ng-table": "0.8.3",
+    "bootstrap-sass": "3.3.7",
+    "fontawesome": "4.7.0",
+    "angular-dialog-service": "^5.3.0",
+    "angular-ui-sortable": "0.17.1",
+    "jquery": "3.2.1",
+    "jquery-ui": "1.12.1",
+    "lodash": "^4.17.4"
+  }
+}

@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="top-btn-container">
+            <a href="/#!/templates">Templates</a>
+            <span>/</span>
+            <span ng-bind="ctrl.entity.name"></span>
+            <div class="logout-link pull-right"><a ng-click="logout()">Logout</a></div>
+            <button type="button" ui-sref="edit-template({id: ctrl.entity.id})" class="btn btn-default btn-sm pull-right">Edit</button>
+        </div>
+    </div>
+    <div class="template">
+        <div class="template--view items">
+            <div class="items-list-container">
+                <div class="item--list">
+                    <div ng-repeat="item in ctrl.items track by $index" class="template-block">
+                        <div class="item-header">
+                            <span ng-bind="item.section.name"></span>
+                        </div>
+                        <div class="template-content-block">
+                            <ng-include src="'templates/content.html'"></ng-include>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

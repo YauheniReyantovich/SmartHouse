@@ -1,0 +1,88 @@
+
+.sections-header {
+    background-color: #eeeeee;
+    padding: 10px 10px 10px 20px;
+    color: #ed375d;
+    font-weight: bold;
+}
+
+.sections-header:before {
+    font-family: FontAwesome, serif;
+    content: '\f080';
+    margin-right: 10px;
+    color: #e64224;
+}
+
+.template {
+    min-height: 500px;
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    min-height: calc(100vh - 40px);
+}
+.template--tools {
+    padding-top: 20px;
+    width: 300px;
+    background: rgb(248, 248, 248);
+    border-right: 2px solid  rgb(240, 240, 240)
+}
+.template--tools .form-group {
+    padding-right: 15px;
+}
+.template--tools .form-group label {
+    margin-top: 10px;
+}
+.template--view {
+    background-color: rgb(221, 221, 221);
+    overflow-y: auto;
+    position: relative;
+    flex: 1 0 auto;
+}
+.items-list-container {
+    padding-right: 30px;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    left: 30px;
+    bottom: 30px;
+}
+.item--list {
+    background: #fff;
+    margin-bottom: 30px;
+    min-height: 300px;
+}
+
+/*.items {
+    height: 600px;
+}*/
+
+.item-block {
+    padding: 10px 10px 10px 50px;
+    color: #e64224;
+    cursor: move;
+}
+
+.template-block {
+    border: 1px solid #e64224;
+}
+
+.template-content-block {
+    padding: 10px;
+}
+
+.item-header {
+    cursor: move;
+    background-color: #e64224;
+    color: white;
+    padding: 5px 10px;
+}
+
+.fa-remove {
+    cursor: pointer;
+    padding: 2px;
+}
+
+.modal-padding{
+    width: 300px;
+    margin: 0 auto;
+}

@@ -1,0 +1,28 @@
+<div class="login-screen">
+    <form class="login-container" ng-submit="ctrl.login(ctrl.username, ctrl.password)">
+        <div class="icon-line">
+            <i class="fa fa-user-circle"></i>
+        </div>
+        <div class="form-title">
+            <span>Please log in</span>
+        </div>
+        <div class="form-label">
+            <span class="error-message" ng-if="ctrl.errorMessage" ng-bind="ctrl.errorMessage"></span>
+        </div>
+        <div class="form-label">
+            <span>User name</span>
+        </div>
+        <div class="form-input">
+            <input type="text" name="username" ng-model="ctrl.username"/>
+        </div>
+        <div class="form-label">
+            <span>Password</span>
+        </div>
+        <div class="form-input">
+            <input type="password" name="password" ng-model="ctrl.password"/>
+        </div>
+        <div class="button-line">
+            <button type="submit" class="btn btn-default" ng-click="ctrl.checkUser()" ng-disabled="!ctrl.username || !ctrl.password">LOGIN</button>
+        </div>
+    </form>
+</div>
