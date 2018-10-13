@@ -13,6 +13,7 @@
 ## Стек технологий
 
  Java 8, Spring (Boot, MVC, Security), Gradle, Lombok, Docker
+ 
  Базы данных.
  - Для пользователей
    - MySQL.
