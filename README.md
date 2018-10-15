@@ -12,7 +12,7 @@
 
 ## Стек технологий
 
- Java 8, Spring (Boot, MVC, Security), Gradle, Lombok, Docker, Web Socket
+ Java 8, Spring (Boot, MVC, Security), Gradle, Lombok, Docker, Web Socket, MQTT
  
  Базы данных.
  - Для пользователей
