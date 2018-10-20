@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 top-btn-container">
+            <span>Templates</span>
+            <div class="logout-link pull-right"><a ng-click="logout()">Logout</a></div>
+            <button type="button" ng-click="ctrl.openModal()" class="btn btn-default btn-sm pull-right">New Template</button>
+        </div>
+    </div>
+    <div class="main-container">
+        <table ng-table="vm.tableParams" class="table" show-filter="false">
+            <tr ng-repeat="template in ctrl.templates" ng-class="$index % 2 == 0? 'even' : 'odd'">
+                <td header-class="'col-md-1 center-column'" class="center-column icon-btn" data-title="'View'"
+                    uib-tooltip="View Template" tooltip-placement="bottom" tooltip-append-to-body="true"
+                    tooltip-popup-delay="100" ui-sref="view-template({id: template.id})">
+                    <i class="fa fa-eye"></i>
+                </td>
+                <td header-class="'col-md-1 center-column'" class="center-column icon-btn" data-title="'Edit'"
+                    uib-tooltip="Edit Template" tooltip-placement="bottom" tooltip-append-to-body="true"
+                    tooltip-popup-delay="100" ui-sref="edit-template({id: template.id})">
+                    <i class="fa fa-pencil"></i>
+                </td>
+                <td header-class="'col-md-1 center-column'" class="center-column icon-btn" data-title="'Remove'"
+                    uib-tooltip="Remove Template" tooltip-placement="bottom" tooltip-append-to-body="true"
+                    tooltip-popup-delay="100" ng-click="ctrl.removeTemplate(template)">
+                    <i class="fa fa-remove"></i>
+                </td>
+                <td title="'Name'" sortable="'name'" header-class="'col-md-4'">
+                    {{template.name}}
+                </td>
+                <td title="'Description'" sortable="'description'" header-class="'col-md-5'">{{template.description}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

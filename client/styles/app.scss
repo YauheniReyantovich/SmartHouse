@@ -1,0 +1,192 @@
+@import '../lib/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+@import '../lib/fontawesome/scss/font-awesome';
+@import '../lib/angular-notify-toaster/toaster.scss';
+@import '../app/login/login';
+@import '../app/templates/templates';
+
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-width: 1024px;
+}
+.wrapper, .wrapper > ui-view {
+    height: 100%;
+    display: block;
+}
+
+.no-padding-left {
+    padding-left: 0!important;
+}
+
+.no-padding-right {
+    padding-right: 0!important;
+}
+
+.main-container {
+    padding: 20px;
+}
+
+.top-btn-container {
+    padding-right: 35px;
+    padding-left: 35px;
+    height: 40px;
+    background-color: #f1f1f1;
+}
+
+.top-btn-container .btn {
+    margin-top: 8px;
+    width: 130px;
+}
+
+.top-btn-container span {
+    line-height: 40px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #606060;
+}
+
+.ng-table .center-column {
+    text-align: center;
+}
+
+.table>tbody>tr>td {
+    border-top: 0;
+}
+
+.odd {
+    background-color: #f1f1f1;
+}
+
+.ng-table th {
+    color: white;
+    background-color: #0f0f0f;
+    text-align: left;
+}
+
+.ng-table th.sortable.sort-desc, .ng-table th.sortable.sort-asc {
+    border-color: white;
+    background-color: #0a0a0a;
+}
+
+.ng-table th.sortable .sort-indicator:after,.ng-table th.sortable .sort-indicator:before {
+    border-color: white transparent;
+}
+
+.ng-table th.sortable.sort-desc .sort-indicator:after {
+    color: white;
+}
+
+.icon-btn {
+    cursor: pointer;
+    color: #805ebc;
+}
+
+.icon-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-default {
+    background: #805ebc none;
+    border-radius: 10px;
+    padding: 2px;
+    width: 80px;
+    outline: none;
+    border: none;
+    color: white;
+    text-shadow: none;
+}
+
+.btn.btn-default:hover {
+    background: #805ebc;
+    color: white;
+}
+
+.btn-default[disabled] {
+    background: #805ebc none;
+}
+
+.btn.btn-default:active, .btn.btn-default:focus, .btn.btn-default:target {
+    background: #805ebc none;
+    outline: none;
+    color: white;
+}
+
+.btn-primary {
+    background: #cacaca none;
+    border-radius: 10px;
+    padding: 2px;
+    width: 80px;
+    outline: none;
+    border: none;
+    text-shadow: none;
+    color: black;
+}
+
+.btn-primary:hover {
+    background: #aaaaaa none!important;
+    color: black!important;
+}
+
+.btn-primary:active, .btn-primary:focus, .btn-primary:target {
+    background: #cacaca none;
+    outline: none!important;
+    color: black!important;
+}
+
+.modal-header .close {
+    color: white;
+}
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.modal-padding-name{
+     padding-right: 41px;
+}
+
+.modal-height{
+    height: 35px;
+}
+
+.modal-margin-button{
+    margin-right: 10px;
+}
+
+label.required:after {
+    content: ' *';
+    color: red;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+.error-message {
+    color: red;
+}
+
+.dialog-header-error { background-color: #d2322d; }
+.dialog-header-wait { background-color: #428bca; }
+.dialog-header-notify { background-color: #eeeeee; }
+.dialog-header-confirm { background-color: #333333; }
+.dialog-header-error span, .dialog-header-error h4,
+.dialog-header-wait span, .dialog-header-wait h4,
+.dialog-header-confirm span, .dialog-header-confirm h4 { color: #ffffff; }
+

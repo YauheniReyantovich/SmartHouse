@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        logicalFilePath="init-schema"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet author="laputski" id="create-app_user-table">
+        <createTable tableName="app_user">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)" />
+            <column name="password" type="varchar(50)" />
+            <column name="enable" type="boolean" />
+            <column name="role" type="varchar(50)" />
+        </createTable>
+    </changeSet>
+
+    <changeSet author="laputski" id="create-template-table">
+        <createTable tableName="template">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)" />
+            <column name="description" type="varchar(255)" />
+        </createTable>
+    </changeSet>
+
+    <changeSet author="laputski" id="create-item-table">
+        <createTable tableName="template_item">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="template_id" type="bigint"/>
+            <column name="item_order" type="double" />
+        </createTable>
+        <addForeignKeyConstraint baseTableName="template_item" constraintName="fk_template"
+                                 baseColumnNames="template_id" referencedTableName="template" referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

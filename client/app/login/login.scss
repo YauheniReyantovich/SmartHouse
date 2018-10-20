@@ -1,0 +1,62 @@
+.login-screen {
+    background: url("../../images/background.jpg") no-repeat center;
+    height: 100%;
+    position: relative;
+    min-height: 600px;
+}
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-40%) translateX(-50%);
+    border-radius: 250px;
+    width: 500px;
+    height: 500px;
+    background: white;
+    opacity: 0.8;
+    padding: 80px;
+}
+
+.login-container .icon-line {
+    margin: 0 auto;
+    text-align: center;
+    color: #805ebc;
+    font-size: 40px;
+}
+
+.login-container .form-title {
+    color: #805ebc;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-container .form-label, .login-container .form-input {
+    text-align: center;
+}
+
+.login-container input {
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid lightgrey;
+    padding-left: 10px;
+}
+
+.login-container .button-line {
+    text-align: center;
+    margin-top: 120px;
+}
+
+.logout-link {
+    float: right;
+    line-height: 38px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.logout-link a, .logout-link a:hover, .logout-link a:visited {
+    color: #805ebc;
+}
