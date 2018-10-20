@@ -3,7 +3,6 @@ package com.sample.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,4 +27,5 @@ public class AuthWebService {
 
     @RequestMapping(value = "/simple")
     public  String sample(){return "www";}
+
 }
