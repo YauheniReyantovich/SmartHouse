@@ -24,11 +24,6 @@
    - Cassandra 
 
 
-## Архитектурная диаграмма
-
-![Screenshot](https://github.com/YauheniReyantovich/SmartHouse/blob/master/src/main/resources/img/diagramm.png)
-
-
 ## Оценка трудоёмкости прооекта
 
  Задачи | Роли | Количество человек | Время | Всего  
@@ -51,6 +46,11 @@
  Время на риски | | | 10% от разработки | 40
  Время на изменения | | | 10% от разработки | 40
  **Всего** | | | | **Приблизительно 932 часа**
+
+
+## Архитектурная диаграмма
+
+![Screenshot](https://github.com/YauheniReyantovich/SmartHouse/blob/master/src/main/resources/img/diagramm.png)
 
 
 #### Build the project
