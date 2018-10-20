@@ -14,6 +14,20 @@
 
 
  Java 8, Spring (Boot, MVC, Security), Gradle, Lombok, Docker, Mosquito, Web Socket, MQTT
+  
+ Базы данных.
+ - Для пользователей
+   - MySQL.
+ - Для хранения состояния датчиков (в кэше)
+   - Redis
+ - Для хранения временных рядов
+   - Cassandra 
+
+
+## Архитектурная диаграмма
+
+![Screenshot](https://github.com/YauheniReyantovich/SmartHouse/blob/master/src/main/resources/img/diagramm.png)
+
 
 ## Оценка трудоёмкости прооекта
 
@@ -37,20 +51,6 @@
  Время на риски | | | 10% от разработки | 40
  Время на изменения | | | 10% от разработки | 40
  **Всего** | | | | **Приблизительно 932 часа**
-
-  
- Базы данных.
- - Для пользователей
-   - MySQL.
- - Для хранения состояния датчиков (в кэше)
-   - Redis
- - Для хранения временных рядов
-   - Cassandra 
-
-
-## Архитектурная диаграмма
-
-![Screenshot](https://github.com/YauheniReyantovich/SmartHouse/blob/master/src/main/resources/img/diagramm.png)
 
 
 #### Build the project
