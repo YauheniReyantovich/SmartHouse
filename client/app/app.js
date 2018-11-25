@@ -9,20 +9,44 @@
         .run(['$rootScope', '$state', '$stateParams', 'authorization', '$transitions', 'ui',
             function ($rootScope, $state, $stateParams, authorization, $transitions, ui) {
                 $transitions.onStart({}, function (trans) {
-                    var to = trans.to();
+                    var to = trans.to().name;
+                    var from = trans.from().name;
                     var $state = trans.router.stateService;
 
-                    if (to.name === 'login' && !ui.stateChanged) return;
-
-                    if (!authorization.isAuthenticated()) {
-                        return authorization.getUser().then(function success() {
-                            authorization.authenticated = true;
-                        }, function err() {
-                            return $state.target('login');
-                        });
+                    if(authorization.isAuthenticated()) {
+                        if(to !== 'sensors' && to !== 'scripts'){
+                            return $state.target('sensors');
+                        }
+                    }else {
+                        if(to === 'sensors' || to === 'scripts'){
+                            if(from === 'login') {
+                                return authorization.getUser().then(function success() {
+                                    authorization.authenticated = true;
+                                }, function err() {
+                                    return $state.target('login');
+                                });
+                            }else {
+                                return $state.target('login');
+                            }
+                        }
+                        // if(to === 'login' || to === 'preview'){
+                        //     return;
+                        // }else {
+                        //     return $state.target('preview');
+                        // }
                     }
-
-                    return ui.checkChanges();
+                    //
+                    // if (to.name === 'login' && !ui.stateChanged) return;
+                    //
+                    // if (!authorization.isAuthenticated()) {
+                    //     return authorization.getUser().then(function success() {
+                    //         authorization.authenticated = true;
+                    //     }, function err() {
+                    //         return $state.target('login');
+                    //     });
+                    // }
+                    //
+                    // return ui.checkChanges();
                 });
 
                 angular.extend($rootScope, {
@@ -30,7 +54,7 @@
                         ui.checkChanges().then(function(state) {
                             if (state) {
                                 authorization.logout().then(function () {
-                                    $state.go('login');
+                                    $state.go('preview');
                                     authorization.authenticated = false;
                                 });
                             }

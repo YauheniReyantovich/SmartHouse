@@ -4,25 +4,25 @@
             <i class="fa fa-user-circle"></i>
         </div>
         <div class="form-title">
-            <span>Please log in</span>
+            <span>Пожалуйста входите</span>
         </div>
         <div class="form-label">
             <span class="error-message" ng-if="ctrl.errorMessage" ng-bind="ctrl.errorMessage"></span>
         </div>
         <div class="form-label">
-            <span>User name</span>
+            <span>Имя пользователя</span>
         </div>
         <div class="form-input">
             <input type="text" name="username" ng-model="ctrl.username"/>
         </div>
         <div class="form-label">
-            <span>Password</span>
+            <span>Пароль</span>
         </div>
         <div class="form-input">
             <input type="password" name="password" ng-model="ctrl.password"/>
         </div>
         <div class="button-line">
-            <button type="submit" class="btn btn-default" ng-click="ctrl.checkUser()" ng-disabled="!ctrl.username || !ctrl.password">LOGIN</button>
+            <button type="submit" class="btn btn-default" ng-click="ctrl.checkUser()" ng-disabled="!ctrl.username || !ctrl.password">Войти</button>
         </div>
     </form>
 </div>

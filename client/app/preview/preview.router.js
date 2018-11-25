@@ -3,10 +3,10 @@
 
     angular.module('sample').config(['$stateProvider', '$urlRouterProvider',
         function ($stateProvider, $urlRouterProvider) {
-            $stateProvider.state('login', {
-                url: '/login',
-                templateUrl: 'app/login/login.html',
-                controller: 'LoginCtrl',
+            $stateProvider.state('preview', {
+                url: '/',
+                templateUrl: 'app/preview/preview.html',
+                controller: 'PreviewCtrl',
                 controllerAs: 'ctrl'
             });
             $urlRouterProvider.otherwise('/preview');

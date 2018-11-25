@@ -1,0 +1,161 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 top-btn-container">
+            <span>Умный Дом</span>
+            <div class="logout-link pull-right"><a ng-click="logout()">Выйти</a></div>
+        </div>
+    </div>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" ng-click="ctrl.toSensors()">Сенсоры</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active">Сценарии</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        <table ng-table="vm.tableParams" class="table">
+            <tr ng-repeat="script in ctrl.scripts" ng-class="$index % 2 == 0? 'even' : 'odd'">
+                <td data-title="'№'">
+                    {{$index + 1}}
+                </td>
+                <td class="center-column" data-title="'Сенсор'">
+                    {{script.sensor}}
+                </td>
+                <td class="center-column" data-title="'Условие'">
+                    {{script.condition}}
+                </td>
+                <td class="center-column" data-title="'Управление'">
+                    {{script.control}}
+                </td>
+                <td class="center-column" data-title="'Действие'">
+                    {{script.action}}
+                </td>
+                <td class="center-column" data-title="'Активность'">
+                    <div style="display: inline-block">
+                        <label class="switch">
+                            <input type="checkbox" class="success" ng-checked="script.working==true" ng-model="checkbox.value" ng-click="ctrl.checkControl($index, checkbox.value)">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <div class="col-md-2">
+            <div>
+                <label for="sensor">Сенсор</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div>
+                <label>Условие</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div>
+                <label for="comparedValue">Сравниваемое значение</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div>
+                <label for="control">Реагирующий объект</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div>
+                <label>Действие</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div>
+                <label for="comment">Комментаий</label>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <form ng-submit="ctrl.newScript(newscript)">
+            <div class="row">
+                <div class="col-md-2">
+                    <div>
+                        <select id="sensor" ng-model="newscript.sensor">
+                            <option ng-repeat="sensor in ctrl.sensors | filter:{stateType:'!bool'}">
+                                {{sensor.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div>
+                        <div class="radio">
+                            <label><input type="radio" name="condition" ng-model="newscript.condition" value="Значение выше" checked>Значение выше</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="condition" ng-model="newscript.condition" value="Значение ниже">Значение ниже</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="condition" ng-model="newscript.condition" value="Значение равно">Значение равно</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="condition" ng-model="newscript.condition" value="Значение не равно">Значение не равно</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="condition" ng-model="newscript.condition" value="Датчик сработал">Датчик сработал</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div>
+                        <input id="comparedValue" type="number" ng-model="newscript.comparedValue">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div>
+                        <select id="control" ng-model="newscript.control">
+                            <option ng-repeat="sensor in ctrl.sensors | filter:{stateType:'bool'}">
+                                {{sensor.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div>
+                        <div class="radio">
+                            <label><input type="radio" name="movement" ng-model="newscript.movement" value="Оповещение" checked>Оповещение</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="movement" ng-model="newscript.movement" value="Включить объект">Включить объект</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="movement" ng-model="newscript.movement" value="Выключить объект">Выключить объект</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div>
+                        <input id="comment" type="text" ng-model="newscript.comment">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1 col-md-offset-7">
+                    <div class="button-line">
+                        <button type="submit" class="btn btn-default">Добавить</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $( "[name=condition]" ).on( "click", function() {
+        if(this.value === 'Датчик сработал'){
+            $("#comparedValue").prop('disabled', true);
+        }else {
+            $("#comparedValue").prop('disabled', false);
+        }
+    });
+</script>

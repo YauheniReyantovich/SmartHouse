@@ -2,12 +2,26 @@
     'use strict';
 
     /** @ngInject */
-    function TemplatesController(Template, ui, $uibModal) {
+    function TemplatesController(Template, ui, $uibModal, $http) {
         this.Template = Template;
         this.ui = ui;
         this.activate();
         this.uibModal = $uibModal;
+        this.http = $http;
     }
+
+    TemplatesController.prototype.someFunction = function(){
+        var _this = this;
+        this.http.get('/sensor/sensors').then(
+            function (resp) {
+                console.log(resp.data);
+                console.log(resp.data.someField);
+            },
+            function () {
+                alert('error')
+            }
+        )
+    };
 
     TemplatesController.prototype.activate = function () {
         var _this = this;
@@ -61,6 +75,6 @@
         }).result.catch(function () { });
     };
 
-    TemplatesController.$inject = ['Template', 'ui', '$uibModal'];
+    TemplatesController.$inject = ['Template', 'ui', '$uibModal', '$http'];
     angular.module('sample').controller('TemplatesCtrl', TemplatesController);
 }());

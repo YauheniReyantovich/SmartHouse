@@ -13,7 +13,7 @@
         this.authorization.authenticate(username, password).then(function() {
             delete _this.errorMessage;
             _this.authorization.authenticated = true;
-            _this.$state.go('templates');
+            _this.$state.go('sensors');
         }).catch(function() {
             _this.ui.notifyError('Invalid username or password');
         })

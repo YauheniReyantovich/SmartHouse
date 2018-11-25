@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 top-btn-container">
+            <span>Умный Дом</span>
+            <div class="logout-link pull-right"><a ng-click="logout()">Выйти</a></div>
+        </div>
+    </div>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active">Сенсоры</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ng-click="ctrl.toScripts()">Сценарии</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        <table ng-table="vm.tableParams" class="table">
+            <tr ng-repeat="sensor in ctrl.sensors" ng-class="$index % 2 == 0? 'even' : 'odd'">
+                <td data-title="'№'">
+                    {{$index + 1}}
+                </td>
+                <td class="center-column" data-title="'Сенсоры'">
+                    {{sensor.name}}
+                </td>
+                <td class="center-column" ng-switch="sensor.stateType" data-title="'Текущее состояние'">
+                    <p ng-switch-when=text>{{sensor.state}}</p>
+                    <p ng-switch-when=warning class="text-danger">{{sensor.state}}</p>
+                    <div ng-switch-when=bool style="display: inline-block">
+                        <label class="switch">
+                            <input type="checkbox" class="success" ng-checked="sensor.state=='true'" ng-model="checkbox.value" ng-click="ctrl.checkControl($index, checkbox.value)">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </td>
+                <td class="center-column" data-title="'Комментарий'">
+                    {{sensor.comment}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <form ng-submit="ctrl.newSensor(newsensor)">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-2">
+                    <div class="form-input">
+                        <input type="text" name="sensorName" ng-model="newsensor.name" placeholder="Ваше название"/>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="form-input">
+                        <input type="number" name="sensorId" ng-model="newsensor.id" placeholder="Номер с коробки"/>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="form-input">
+                        <input type="text" name="sensorComment" ng-model="newsensor.comment" placeholder="Комментарий"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1 col-md-offset-7">
+                    <div class="button-line">
+                        <button type="submit" class="btn btn-default" ng-disabled="!newsensor.name || !newsensor.id">Добавить</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
