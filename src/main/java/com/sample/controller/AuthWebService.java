@@ -24,4 +24,8 @@ public class AuthWebService {
 
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
+
+    @RequestMapping(value = "/simple")
+    public  String sample(){return "www";}
+
 }
