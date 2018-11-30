@@ -5,7 +5,7 @@
         logicalFilePath="init-schema"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-    <changeSet author="laputski" id="create-app_user-table">
+    <changeSet author="reyantovich" id="create-app_user-table">
         <createTable tableName="app_user">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
@@ -17,25 +17,39 @@
         </createTable>
     </changeSet>
 
-    <changeSet author="laputski" id="create-template-table">
-        <createTable tableName="template">
+    <changeSet author="reyantovich" id="create-sensor-table">
+        <createTable tableName="sensor">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
             <column name="name" type="varchar(255)" />
-            <column name="description" type="varchar(255)" />
+            <column name="state_type" type="varchar(255)" />
+            <column name="state" type="varchar(255)" />
+            <column name="comment" type="varchar(255)" />
+            <column name="user_id" type="bigint"/>
         </createTable>
+        <addForeignKeyConstraint baseTableName="sensor" constraintName="fk_sensor_of_user"
+                                 baseColumnNames="user_id" referencedTableName="app_user" referencedColumnNames="id"/>
     </changeSet>
 
-    <changeSet author="laputski" id="create-item-table">
-        <createTable tableName="template_item">
+    <changeSet author="reyantovich" id="create-script-table">
+        <createTable tableName="script">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="template_id" type="bigint"/>
-            <column name="item_order" type="double" />
+            <column name="condition" type="varchar(255)" />
+            <column name="compared_value" type="varchar(255)" />
+            <column name="action" type="varchar(255)" />
+            <column name="is_working" type="bool" />
+            <column name="sensor_id" type="bigint"/>
+            <column name="control_id" type="bigint"/>
+            <column name="user_id" type="bigint"/>
         </createTable>
-        <addForeignKeyConstraint baseTableName="template_item" constraintName="fk_template"
-                                 baseColumnNames="template_id" referencedTableName="template" referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="script" constraintName="fk_script_of_sensor"
+                                 baseColumnNames="sensor_id" referencedTableName="sensor" referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="script" constraintName="fk_script_of_control"
+                                 baseColumnNames="control_id" referencedTableName="sensor" referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="script" constraintName="fk_script_of_user"
+                                 baseColumnNames="user_id" referencedTableName="app_user" referencedColumnNames="id"/>
     </changeSet>
 </databaseChangeLog>

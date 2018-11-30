@@ -22,13 +22,15 @@
                     {{$index + 1}}
                 </td>
                 <td class="center-column" data-title="'Сенсор'">
-                    {{script.sensor}}
+                    {{script.sensorId.name}}
                 </td>
-                <td class="center-column" data-title="'Условие'">
-                    {{script.condition}}
+                <td class="center-column" ng-switch="script.condition" data-title="'Условие'">
+                    <p ng-switch-when=more>{{"> " + script.comparedValue}}</p>
+                    <p ng-switch-when=less>{{"< " + script.comparedValue}}</p>
+                    <p ng-switch-when=работает>работает</p>
                 </td>
                 <td class="center-column" data-title="'Управление'">
-                    {{script.control}}
+                    {{script.controlID !== null ? script.controlID.name : ''}}
                 </td>
                 <td class="center-column" data-title="'Действие'">
                     {{script.action}}

@@ -17,6 +17,11 @@ public class UserServiceImpl extends GenericServiceImpl<User> implements UserSer
     private UserRepository userRepository;
 
     @Override
+    public User findUserById(long id) {
+        return userRepository.findUserById(id);
+    }
+
+    @Override
     protected JpaRepository<User, Long> getRepository() {
         return userRepository;
     }

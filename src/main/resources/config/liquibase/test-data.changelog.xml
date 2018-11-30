@@ -21,30 +21,119 @@
         </insert>
     </changeSet>
 
-    <changeSet author="laputski" id="create-default-templates">
-        <insert tableName="template">
-            <column name="name" value="template1"/>
-            <column name="description" value="template1"/>
+    <changeSet author="reyantovich" id="create-default-sensors">
+        <insert tableName="sensor">
+            <column name="name" value="Температура воздуха" />
+            <column name="state_type" value="text" />
+            <column name="state" value="25°С" />
+            <column name="comment" value="Гостиная" />
+            <column name="user_id" value="1"/>
         </insert>
 
-        <insert tableName="template">
-            <column name="name" value="template2"/>
-            <column name="description" value="template2"/>
+        <insert tableName="sensor">
+            <column name="name" value="Влажность" />
+            <column name="state_type" value="text" />
+            <column name="state" value="42%" />
+            <column name="comment" value="Гостиная" />
+            <column name="user_id" value="1"/>
         </insert>
 
-        <insert tableName="template">
-            <column name="name" value="template3"/>
-            <column name="description" value="template3"/>
+        <insert tableName="sensor">
+            <column name="name" value="Датчик протекания" />
+            <column name="state_type" value="warning" />
+            <column name="state" value="Показатель превышен!" />
+            <column name="comment" value="Ванная комната" />
+            <column name="user_id" value="1"/>
         </insert>
 
-        <insert tableName="template">
-            <column name="name" value="template4"/>
-            <column name="description" value="template4"/>
+        <insert tableName="sensor">
+            <column name="name" value="Датчик протекания" />
+            <column name="state_type" value="text" />
+            <column name="state" value="-" />
+            <column name="comment" value="Кухня" />
+            <column name="user_id" value="1"/>
         </insert>
 
-        <insert tableName="template">
-            <column name="name" value="template5"/>
-            <column name="description" value="template5"/>
+        <insert tableName="sensor">
+            <column name="name" value="Температура воздуха" />
+            <column name="state_type" value="text" />
+            <column name="state" value="23°С" />
+            <column name="comment" value="Комната Машеньки" />
+            <column name="user_id" value="1"/>
+        </insert>
+
+        <insert tableName="sensor">
+            <column name="name" value="Ночной светильник" />
+            <column name="state_type" value="bool" />
+            <column name="state" value="true" />
+            <column name="comment" value="Комната Славика" />
+            <column name="user_id" value="1"/>
+        </insert>
+
+        <insert tableName="sensor">
+            <column name="name" value="Датчик газа" />
+            <column name="state_type" value="text" />
+            <column name="state" value="-" />
+            <column name="comment" value="Кухня" />
+            <column name="user_id" value="1"/>
+        </insert>
+
+        <insert tableName="sensor">
+            <column name="name" value="Сигнализация" />
+            <column name="state_type" value="bool" />
+            <column name="state" value="false" />
+            <column name="comment" value="Общая" />
+            <column name="user_id" value="1"/>
+        </insert>
+
+        <insert tableName="sensor">
+            <column name="name" value="Обогреватель" />
+            <column name="state_type" value="bool" />
+            <column name="state" value="false" />
+            <column name="comment" value="Общая" />
+            <column name="user_id" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="reyantovich" id="create-default-scripts">
+        <insert tableName="script">
+            <column name="condition" value="less" />
+            <column name="compared_value" value="18°С" />
+            <column name="action" value="вкл" />
+            <column name="is_working" valueBoolean="true" />
+            <column name="sensor_id" value="1"/>
+            <column name="control_id" value="9"/>
+            <column name="user_id" value="1"/>
+        </insert>
+
+        <insert tableName="script">
+            <column name="condition" value="more" />
+            <column name="compared_value" value="27°С" />
+            <column name="action" value="выкл" />
+            <column name="is_working" valueBoolean="true" />
+            <column name="sensor_id" value="5"/>
+            <column name="control_id" value="9"/>
+            <column name="user_id" value="1"/>
+        </insert>
+
+        <insert tableName="script">
+            <column name="condition" value="работает" />
+            <column name="compared_value" value="null" />
+            <column name="action" value="оповещение" />
+            <column name="is_working" valueBoolean="false"/>
+            <column name="sensor_id" value="4"/>
+            <column name="control_id"/>
+            <column name="user_id" value="1"/>
+        </insert>
+
+        <insert tableName="script">
+            <column name="condition" value="работает" />
+            <column name="compared_value" value="null" />
+            <column name="action" value="оповещение" />
+            <column name="is_working" valueBoolean="true" />
+            <column name="sensor_id" value="7"/>
+            <column name="control_id"/>
+            <column name="user_id" value="1"/>
         </insert>
     </changeSet>
 

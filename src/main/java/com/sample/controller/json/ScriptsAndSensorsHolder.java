@@ -1,5 +1,8 @@
 package com.sample.controller.json;
 
+import com.sample.model.Script;
+import com.sample.model.Sensor;
+
 import java.util.List;
 
 public class ScriptsAndSensorsHolder {

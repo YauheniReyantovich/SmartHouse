@@ -32,6 +32,15 @@ public class User implements Serializable{
     @Column(name="ENABLE", nullable=false)
     private boolean enable;
 
+    public User(){}
+
+    public User(String name, String password, String role, boolean enable) {
+        this.name = name;
+        this.password = password;
+        this.role = role;
+        this.enable = enable;
+    }
+
     public Long getId() {
         return id;
     }
