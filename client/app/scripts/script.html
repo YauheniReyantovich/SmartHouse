@@ -79,15 +79,16 @@
         </div>
     </div>
     <div class="container">
-        <form ng-submit="ctrl.newScript(newscript)">
+        <form ng-submit="ctrl.newScript()">
             <div class="row">
                 <div class="col-md-2">
                     <div>
-                        <select id="sensor" ng-model="newscript.sensor">
-                            <option ng-repeat="sensor in ctrl.sensors | filter:{stateType:'!bool'}">
-                                {{sensor.name}}
-                            </option>
-                        </select>
+                        <select ng-model="ctrl.selectedSensor" ng-options="sensor.id for sensor in ctrl.sensors"></select>
+                        <!--<select id="sensor" ng-model="ctrl.selectedSensor.sensor">-->
+                            <!--<option ng-repeat="sensor in ctrl.sensors | filter:{stateType:'!bool'}">-->
+                                <!--{{sensor.name}}-->
+                            <!--</option>-->
+                        <!--</select>-->
                     </div>
                 </div>
                 <div class="col-md-2">

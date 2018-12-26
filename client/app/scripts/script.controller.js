@@ -7,6 +7,7 @@
         this.ui = ui;
         this.activate();
         this.state = $state;
+        this.selectedSensor = {sensor:{id: 1, name: 'asd'}};
     }
 
     ScriptsController.prototype.toSensors = function(){
@@ -17,9 +18,10 @@
         this.http.post('/controller/changeState', {index: index, value: value === undefined ? false : value});
     };
 
-    ScriptsController.prototype.newScript = function(newscript){
-        console.log(newscript);
-        this.http.post('/script/newScript', newscript);
+    ScriptsController.prototype.newScript = function(){
+        console.log("#sensor selected.innerHtml");
+        console.log(this.selectedSensor);
+        this.http.post('/script/newScript', this.selectedSensor);
     };
 
     ScriptsController.prototype.activate = function () {
