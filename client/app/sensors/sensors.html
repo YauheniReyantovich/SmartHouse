@@ -29,7 +29,7 @@
                     <p ng-switch-when=warning class="text-danger">{{sensor.state}}</p>
                     <div ng-switch-when=bool style="display: inline-block">
                         <label class="switch">
-                            <input type="checkbox" class="success" ng-checked="sensor.state=='true'" ng-model="checkbox.value" ng-click="ctrl.checkControl($index, checkbox.value)">
+                            <input type="checkbox" class="success" ng-checked="sensor.state=='1'" ng-model="checkbox.value" ng-click="ctrl.checkControl($index, checkbox.value)">
                             <span class="slider round"></span>
                         </label>
                     </div>

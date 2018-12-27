@@ -13,8 +13,8 @@ public class serviceT implements Job {
     static String query;
     static public String user;
     static String value;
-    static int a = 20;
-    static int b = 27;
+    static int a = 10;
+    static int b = 30;
 
     public void execute(JobExecutionContext context) throws JobExecutionException {
         Cluster cluster = Cluster.builder().addContactPoints(serverIP).withPort(port).build();

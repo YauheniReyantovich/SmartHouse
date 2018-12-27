@@ -35,7 +35,7 @@ public class SensorController {
             case 1: sensor.setStateType("warning"); break;
             case 2: sensor.setStateType("bool"); break;
         }
-        sensor.setState(sensor.getStateType().equals("bool") ? "false" : "-");
+       // sensor.setState(sensor.getStateType().equals("bool") ? "false" : "-");
         sensor.setComment(newSensor.getComment());
         sensor.setUserId(userService.findUserById(1L));
         sensorService.newSensor(sensor);
