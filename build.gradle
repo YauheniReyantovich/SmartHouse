@@ -30,7 +30,6 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('com.zaxxer:HikariCP:2.4.0')
 	compile('com.h2database:h2')
-	compile files('c:\\Program Files\\DataStax Community\\apache-cassandra\\lib\\cassandra-driver-core-3.0.1-shaded.jar');
 	compile('org.liquibase:liquibase-core')
 	compile('org.apache.commons:commons-lang3:3.5')
 	compile('org.springframework.boot:spring-boot-starter-security')
