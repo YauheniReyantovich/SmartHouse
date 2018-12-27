@@ -31,8 +31,24 @@ public class ScriptController {
     }
 
     @RequestMapping(value = "/newScript", method = RequestMethod.POST)
-    public void newScript(@RequestBody NewScript newScript){
-        System.out.println(newScript);
+    public List<Script> newScript(@RequestBody NewScript newScript){
+        Script script = new Script();
+        switch (newScript.getCondition()){
+            case "Значение выше": script.setCondition("more"); break;
+            case "Значение ниже": script.setCondition("less"); break;
+            case "Значение равно": script.setCondition("equals"); break;
+            case "Значение не равно": script.setCondition("notEquals"); break;
+            case "Датчик сработал": script.setCondition("работает"); break;
+        }
+        script.setComparedValue(script.getCondition().equals("работает") ? null : newScript.getComparedValue().toString());
+        script.setAction(newScript.getMovement());
+        script.setWorking(false);
+        script.setSensorId(sensorService.findById(Long.valueOf(newScript.getSensor())));
+        script.setControlID(script.getCondition().equals("работает") ? null : sensorService.findById(Long.valueOf(newScript.getControl())));
+        script.setUserId(userService.findUserById(1L));
+
+        scriptService.newScript(script);
+        return scriptService.findScriptsByUserId(userService.findUserById(1L));
     }
 
     @Autowired

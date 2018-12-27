@@ -98,8 +98,8 @@
     <changeSet author="reyantovich" id="create-default-scripts">
         <insert tableName="script">
             <column name="condition" value="less" />
-            <column name="compared_value" value="18°С" />
-            <column name="action" value="вкл" />
+            <column name="compared_value" value="18" />
+            <column name="action" value="Включить объект" />
             <column name="is_working" valueBoolean="true" />
             <column name="sensor_id" value="1"/>
             <column name="control_id" value="9"/>
@@ -108,8 +108,8 @@
 
         <insert tableName="script">
             <column name="condition" value="more" />
-            <column name="compared_value" value="27°С" />
-            <column name="action" value="выкл" />
+            <column name="compared_value" value="27" />
+            <column name="action" value="Выключить объект" />
             <column name="is_working" valueBoolean="true" />
             <column name="sensor_id" value="5"/>
             <column name="control_id" value="9"/>
@@ -119,7 +119,7 @@
         <insert tableName="script">
             <column name="condition" value="работает" />
             <column name="compared_value" value="null" />
-            <column name="action" value="оповещение" />
+            <column name="action" value="Оповещение" />
             <column name="is_working" valueBoolean="false"/>
             <column name="sensor_id" value="4"/>
             <column name="control_id"/>
@@ -129,7 +129,7 @@
         <insert tableName="script">
             <column name="condition" value="работает" />
             <column name="compared_value" value="null" />
-            <column name="action" value="оповещение" />
+            <column name="action" value="Оповещение" />
             <column name="is_working" valueBoolean="true" />
             <column name="sensor_id" value="7"/>
             <column name="control_id"/>

@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ScriptService extends GenericService<Script> {
 
-//    List<Object[]> getAllScripts();
-
     List<Script> findScriptsByUserId(User user);
+
+    void newScript(Script script);
 }

@@ -3,6 +3,7 @@ package com.sample.model;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -37,7 +38,7 @@ public class Script implements Serializable {
     @Column(name="ACTION", nullable=false)
     private String action;
 
-    @NotEmpty
+    @NotNull
     @Column(name="IS_WORKING", nullable = false)
     private  Boolean isWorking;
 

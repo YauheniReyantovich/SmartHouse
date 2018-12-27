@@ -35,11 +35,11 @@ public class Sensor implements Serializable {
 
     public Sensor(){}
 
-    public Long getSensorId() {
+    public Long getId() {
         return id;
     }
 
-    public void setSensorId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

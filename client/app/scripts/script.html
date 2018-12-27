@@ -7,11 +7,11 @@
     </div>
     <div class="container">
         <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link" ng-click="ctrl.toSensors()">Сенсоры</a>
+            <li>
+                <a ng-click="ctrl.toSensors()">Сенсоры</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link active">Сценарии</a>
+            <li class="active">
+                <a>Сценарии</a>
             </li>
         </ul>
     </div>
@@ -27,6 +27,8 @@
                 <td class="center-column" ng-switch="script.condition" data-title="'Условие'">
                     <p ng-switch-when=more>{{"> " + script.comparedValue}}</p>
                     <p ng-switch-when=less>{{"< " + script.comparedValue}}</p>
+                    <p ng-switch-when=equals>{{"= " + script.comparedValue}}</p>
+                    <p ng-switch-when=notEquals>{{"\u2260 " + script.comparedValue}}</p>
                     <p ng-switch-when=работает>работает</p>
                 </td>
                 <td class="center-column" data-title="'Управление'">
@@ -83,11 +85,7 @@
             <div class="row">
                 <div class="col-md-2">
                     <div>
-                        <select id="sensor" ng-model="newscript.sensor">
-                            <option ng-repeat="sensor in ctrl.sensors | filter:{stateType:'!bool'}">
-                                {{sensor.name}}
-                            </option>
-                        </select>
+                        <select id="sensor" ng-model="newscript.sensor" ng-options="sensor.id as sensor.name for sensor in ctrl.sensors | filter:{stateType:'!bool'}"></select>
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -116,11 +114,7 @@
                 </div>
                 <div class="col-md-2">
                     <div>
-                        <select id="control" ng-model="newscript.control">
-                            <option ng-repeat="sensor in ctrl.sensors | filter:{stateType:'bool'}">
-                                {{sensor.name}}
-                            </option>
-                        </select>
+                        <select id="control" ng-model="newscript.control" ng-options="sensor.id as sensor.name for sensor in ctrl.sensors | filter:{stateType:'bool'}"></select>
                     </div>
                 </div>
                 <div class="col-md-2">

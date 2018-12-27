@@ -28,6 +28,11 @@ public class SensorServiceImpl extends GenericServiceImpl<Sensor> implements Sen
     }
 
     @Override
+    public void newSensor(Sensor sensor) {
+        create(sensor);
+    }
+
+    @Override
     public void deleteBySensorId(long sensorId) {
         getRepository().delete(sensorId);
     }

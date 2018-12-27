@@ -18,8 +18,16 @@
     };
 
     ScriptsController.prototype.newScript = function(newscript){
-        console.log(newscript);
-        this.http.post('/script/newScript', newscript);
+        var _this = this;
+        this.http.post('/script/newScript', newscript).then(
+            function (response) {
+                _this.scripts = response.data;
+            },
+            function (error) {
+                this.ui.notifyError(error);
+                alert('post scripts error');
+            }
+        );
     };
 
     ScriptsController.prototype.activate = function () {

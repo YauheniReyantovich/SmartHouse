@@ -22,12 +22,13 @@ public class ScriptServiceImpl extends GenericServiceImpl<Script> implements Scr
         return scriptRepository;
     }
 
-//    public List<Object[]> getAllScripts(){
-//        return scriptRepository.getAllScripts();
-//    }
-
     public List<Script> findScriptsByUserId(User user){
         return scriptRepository.findScriptsByUserId(user);
+    }
+
+    @Override
+    public void newScript(Script script) {
+        create(script);
     }
 
     @Autowired

@@ -23,21 +23,23 @@ public class SensorController {
 
     @RequestMapping(value = "/sensors", method = RequestMethod.GET)
     public List<Sensor> sensors(){
-//        List<Sensor> sensors = new ArrayList<>();
-//        sensors.add(new Sensor("Температура воздуха", "text", "25\u00b0С", "Гостиная"));
-//        sensors.add(new Sensor("Влажность", "text","42%", "Гостиная"));
-//        sensors.add(new Sensor("Датчик протекания", "warning", "Показатель превышен!", "Ванная комната"));
-//        sensors.add(new Sensor("Датчик протекания", "text","-", "Кухня"));
-//        sensors.add(new Sensor("Температура воздуха", "text","23\u00b0С", "Комната Машеньки"));
-//        sensors.add(new Sensor("Ночной светильник", "bool", "true", "Комната Славика"));
-//        sensors.add(new Sensor("Датчик газа", "text","-", "Кухня"));
-//        sensors.add(new Sensor("Сигнализация", "bool","false", "Общая"));
         return sensorService.findByUserId(userService.findUserById(1L));
     }
 
     @RequestMapping(value = "/newSensor", method = RequestMethod.POST)
-    public void newSensor(@RequestBody NewSensor newSensor){
-        System.out.println(newSensor);
+    public List<Sensor> newSensor(@RequestBody NewSensor newSensor){
+        Sensor sensor = new Sensor();
+        sensor.setName(newSensor.getName());
+        switch (newSensor.getId() % 3){
+            case 0: sensor.setStateType("text"); break;
+            case 1: sensor.setStateType("warning"); break;
+            case 2: sensor.setStateType("bool"); break;
+        }
+        sensor.setState(sensor.getStateType().equals("bool") ? "false" : "-");
+        sensor.setComment(newSensor.getComment());
+        sensor.setUserId(userService.findUserById(1L));
+        sensorService.newSensor(sensor);
+        return sensorService.findByUserId(userService.findUserById(1L));
     }
 
     @Autowired

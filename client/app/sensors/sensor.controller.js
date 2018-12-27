@@ -32,7 +32,16 @@
     };
 
     SensorsController.prototype.newSensor = function(newsensor){
-        this.http.post('/sensor/newSensor', newsensor);
+        var _this = this;
+        this.http.post('/sensor/newSensor', newsensor).then(
+            function (response) {
+                _this.sensors = response.data;
+            },
+            function (error) {
+                this.ui.notifyError(error);
+                alert('post sensor error');
+            }
+        );
     };
 
     SensorsController.prototype.activate = function () {

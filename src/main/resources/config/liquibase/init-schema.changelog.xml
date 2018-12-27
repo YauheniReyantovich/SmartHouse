@@ -40,7 +40,7 @@
             <column name="condition" type="varchar(255)" />
             <column name="compared_value" type="varchar(255)" />
             <column name="action" type="varchar(255)" />
-            <column name="is_working" type="bool" />
+            <column name="is_working" type="boolean" />
             <column name="sensor_id" type="bigint"/>
             <column name="control_id" type="bigint"/>
             <column name="user_id" type="bigint"/>

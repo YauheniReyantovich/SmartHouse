@@ -10,5 +10,7 @@ public interface SensorService extends GenericService<Sensor> {
 
     List<Sensor> findByUserId(User user);
 
+    void newSensor(Sensor sensor);
+
     void deleteBySensorId(long sensorId);
 }
