@@ -7,6 +7,7 @@
         this.ui = ui;
         this.activate();
         this.state = $state;
+        this.selectedSensor = {sensor:{id: 1, name: 'asd'}};
     }
 
     ScriptsController.prototype.toSensors = function(){
